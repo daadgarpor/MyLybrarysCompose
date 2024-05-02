@@ -51,9 +51,9 @@ afterEvaluate {
     publishing {
         publications {
             register<MavenPublication>("release") {
-                groupId = "com.github.daadgarpor"
-                artifactId = "my-dots"
-                version = "5.0"
+                groupId = "MyLybrarysCompose"
+                artifactId = "myDots"
+                version = "1.0"
 
                 afterEvaluate {
                     from(components["release"])
