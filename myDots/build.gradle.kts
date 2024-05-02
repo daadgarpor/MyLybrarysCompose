@@ -35,6 +35,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
 }
 
 dependencies {
@@ -51,13 +54,13 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            register<MavenPublication>("release") {
+            create<MavenPublication>("release") {
+                from(components["release"])
                 groupId = "MyLybrarysCompose"
                 artifactId = "myDots"
-                version = "7.0"
-
-                afterEvaluate {
-                    from(components["release"])
+                version = "8.0"
+                repositories {
+                    mavenLocal()
                 }
             }
         }
