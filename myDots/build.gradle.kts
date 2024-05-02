@@ -53,7 +53,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "com.github.daadgarpor"
                 artifactId = "my-dots"
-                version = "1.0"
+                version = "4.0"
 
                 afterEvaluate {
                     from(components["release"])
