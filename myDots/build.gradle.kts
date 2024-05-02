@@ -53,7 +53,7 @@ afterEvaluate {
             register<MavenPublication>("release") {
                 groupId = "MyLybrarysCompose"
                 artifactId = "myDots"
-                version = "1.0"
+                version = "6.0"
 
                 afterEvaluate {
                     from(components["release"])
