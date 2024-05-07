@@ -29,6 +29,29 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 
+/***
+ * @author Daniel Garcia Portillo
+ * @param dotCount cantidad de dots
+ * @param currentDotPosition posicion en la que inicia y que se ira actualizando.
+ * @param colorBackground color para el background de lo Dots
+ * @param shape forma de los Dots
+ * @param colorDotsUnselected color cuando no esta selecionado un Dot
+ * @param onClickDot lambda q regresa la posiscion actual del Dot
+ *
+ * @sample
+ * DotsIndicator(
+ *                 dotCount = 3,
+ *                 currentDotPosition = 1,
+ *                 shape = CircleShape,
+ *                 colorBackground = Color.Gray,
+ *                 colorDotsUnselected = Color.White,
+ *                 onClickDot = { position ->
+ *                     currentDotPosition = position
+ *                 }
+ *             )
+ *
+ *
+ */
 
 @Composable
 fun DotsIndicator(
@@ -37,7 +60,7 @@ fun DotsIndicator(
     colorBackground: Color = Color.Gray,
     shape: Shape = CircleShape,
     colorDotsUnselected: Color = Color.White,
-    onClickDot: ((Int) -> Unit)): Boolean
+    onClickDot: ((Int) -> Unit))
 {
 
     LazyRow(
@@ -59,7 +82,6 @@ fun DotsIndicator(
             )
         }
     }
-    return true
 }
 
 @Composable
@@ -105,7 +127,7 @@ fun Dots(){
                 }) {
                 Text(text = "clickAtras")
             }
-           val ss = DotsIndicator(
+           DotsIndicator(
                 dotCount = dotCount,
                 currentDotPosition = currentDotPosition,
                 shape = CircleShape,
