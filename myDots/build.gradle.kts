@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    debugImplementation(libs.ui.tooling)
 }
 afterEvaluate {
     publishing {
@@ -58,7 +59,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "MyLybrarysCompose"
                 artifactId = "myDots"
-                version = "8.0"
+                version = "8.1.0"
                 repositories {
                     mavenLocal()
                 }
