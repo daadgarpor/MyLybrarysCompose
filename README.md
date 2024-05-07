@@ -23,6 +23,19 @@ Este indicador es ideal para carruseles de imágenes, vistas de paginación, o c
 
 ### Prerrequisitos
 
+
+💻 Requirements
+------------
+
+To try out these sample apps, you need to use [Android Studio](https://developer.android.com/studio).
+You can clone this repository or import the
+project from Android Studio following the steps
+[here](https://developer.android.com/jetpack/compose/setup#sample).
+
+
+🧬 Samples
+------------
+
 ## Uso
 
 Para utilizar esta función, simplemente inclúyela en tu proyecto
@@ -30,8 +43,46 @@ Para utilizar esta función, simplemente inclúyela en tu proyecto
 ```kotlin
 # Importar la función desde tu módulo en una funcion Composable
 
-# currentDotPosition parametro que indica dot que se selecciona
-# dotCount parametro que indica cantidad de dots a implementar
+	@Preview(showBackground = true)
+	@Composable
+	fun Dots(){
+	    var currentDotPosition by remember { mutableIntStateOf(0) }
+	    var dotCount by remember { mutableIntStateOf(5) }
+	
+	    Box(modifier = Modifier
+	        .fillMaxSize()
+	        .background(Color.White)) {
+	        Column {
+	            Button(
+	                onClick = {
+	                    if (currentDotPosition < dotCount - 1) {
+	                        currentDotPosition += 1
+	                    }
+	                }) {
+	                Text(text = "clickNext")
+	            }
+	            Button(
+	                onClick = {
+	                    if (currentDotPosition <= 0 ) {
+	                        currentDotPosition = 0
+	                    }else{
+	                        currentDotPosition -= 1
+	                    }
+	                }) {
+	                Text(text = "clickAtras")
+	            }
+	          DotsIndicator(
+	                dotCount = dotCount,
+	                currentDotPosition = currentDotPosition,
+	                shape = CircleShape,
+	                colorBackground = Color.Gray,
+	                colorDotsUnselected = Color.White,
+	                onClickDot = { position ->
+	                    currentDotPosition = position
+	                }
+	            )
+	        }
+	    }
+	}
 
-    DotsIndicator(dotCount = 3, currentDotPosition = 0)
 
